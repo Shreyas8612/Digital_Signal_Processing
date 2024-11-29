@@ -137,7 +137,7 @@ disp(a_);
 
 % Implement Low-Level IIR Convolutional sum 
 % Similar to filter(b_, a_, sonar_signal)
-Low_level_IIR_Output = zeros(size(sonar_signal)); % Initialize output
+Low_level_IIR_Output = zeros(size(Windowed_Signal)); % Initialize output
 
 Z_1 = 0; % First delay element
 Z_2 = 0; % Second delay element
@@ -149,15 +149,15 @@ Z_in_2 = 0; % Second input delay element
 Z_in_3 = 0; % Third input delay element
 Z_in_4 = 0; % Fourth input delay element
 
-for n = 1:length(sonar_signal)
+for n = 1:length(Windowed_Signal)
 % Calculate the current output sample using the canonical form realization
-    Low_level_IIR_Output(n) = (b(1) * sonar_signal(n) + b(2) * Z_in_1 + b(3) * Z_in_2 + b(4) * Z_in_3 + b(5) * Z_in_4) ...
+    Low_level_IIR_Output(n) = (b(1) * Windowed_Signal(n) + b(2) * Z_in_1 + b(3) * Z_in_2 + b(4) * Z_in_3 + b(5) * Z_in_4) ...
     - (a(2) * Z_1 + a(3) * Z_2 + a(4) * Z_3 + a(5) * Z_4);
 % Update delay elements
     Z_in_4 = Z_in_3;
     Z_in_3 = Z_in_2;
     Z_in_2 = Z_in_1;
-    Z_in_1 = sonar_signal(n);
+    Z_in_1 = Windowed_Signal(n);
     Z_4 = Z_3;
     Z_3 = Z_2;
     Z_2 = Z_1;
@@ -169,8 +169,8 @@ Low_level_IIR_Output(~isfinite(Low_level_IIR_Output)) = 0;
 
 % Plot the Un-Filtered signal in time domain
 figure;
-t = (0:length(sonar_signal)-1) / fs; % Time vector
-plot(t, sonar_signal, 'b', 'LineWidth', 0.5);
+t = (0:length(Windowed_Signal)-1) / fs; % Time vector
+plot(t, Windowed_Signal, 'b', 'LineWidth', 0.5);
 hold on;
 
 % Plot the Filtered signal in time domain
@@ -189,7 +189,7 @@ plot(f_ps_manual / 1e3, 10*log10(pxx_manual));
 hold on;
 
 % Plot the Un-Filtered signal in frequency domain
-[pxx, f_ps] = pspectrum(sonar_signal, fs);
+[pxx, f_ps] = pspectrum(Windowed_Signal, fs);
 plot(f_ps / 1e3, 10*log10(pxx)); % Convert frequency to kHz and power to dB
 xlabel('Frequency (kHz)');
 ylabel('Power Spectrum (dB)');
