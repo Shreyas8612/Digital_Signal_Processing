@@ -20,18 +20,19 @@ This project involves analyzing a sonar signal, designing digital filters, and d
 ---
 
 ### **Section 2: Bandpass Filter Design**  
-- Designs a **2nd-order Butterworth Bandpass Filter** using the manual `butter()` function's math with:  
+- Designs a **2nd-order Butterworth Bandpass Filter** using the manual `butter()` function with:  
     - **Cutoff frequencies:** Carrier frequency ± 10 kHz.  
 - Implements a low-level **IIR filter convolution sum** manually to verify filter correctness.  
 - Plots the filtered signal in both time and frequency domains to reveal the echo.  
 
 ---
 
-### **Section 3: Envelope Detection**  
+### **Task 3: Envelope Detection**  
 - **Full-Wave Rectification** using the `abs()` function on the filtered signal.  
 - Designs a **single-stage FIR Lowpass Filter** with the following specifications:  
     - Passband edge: *1 kHz*  
-    - Stopband edge: *2 kHz*   
+    - Stopband edge: *2 kHz*  
+    - Ripple and attenuation requirements.  
 - Verifies the filter’s frequency response and manually implements convolution for filtering.  
 - **Calculates the range to the target** using the time delay between the outgoing pulse and echo signal.  
 
@@ -40,7 +41,7 @@ This project involves analyzing a sonar signal, designing digital filters, and d
 ### **Task 4: Multi-Rate Lowpass Filter**  
 - Implements a **2-stage lowpass filtering** process with:  
     1. **Anti-aliasing filter** to decimate the signal by a factor of 50.  
-    2. Second-stage filtering to reduce computational complexity .i.e., number of taps by reducing the sampling frequency.  
+    2. Second-stage filtering to reduce computational complexity.  
 - Quantifies the **computational load** savings theoretically and measures MATLAB execution times for:  
     - Single-stage FIR filtering.  
     - Multi-rate FIR filtering.  
@@ -48,11 +49,19 @@ This project involves analyzing a sonar signal, designing digital filters, and d
 ---
 
 ## **Instructions for Running the Code**  
-1. **Run the Script**:  
-   - Save the provided MATLAB code as `Test.m`.  
+
+1. **Ensure your `.wav` file is in the same directory**:  
+   Replace the following line with the filename provided:  
+
+   ```matlab
+   [sonar_signal, fs] = audioread('Sonar_Signal.wav');
+   ```
+
+2. **Run the Script**:  
+   - Save the provided MATLAB code as `EEE3030_SonarAnalysis.m`.  
    - Run the script using the MATLAB Editor or Command Window.  
 
-2. **Outputs**:  
+3. **Outputs**:  
    - Time and frequency domain plots for analysis.  
    - Filtered and rectified signals.  
    - Computational time measurements for single-stage and multi-rate filtering.  
@@ -74,9 +83,22 @@ This project involves analyzing a sonar signal, designing digital filters, and d
 - **Filter Performance**: Frequency responses are plotted to verify filter performance.  
 - **Computational Savings**: Theoretical and experimental savings are presented for multi-rate filtering.  
 
-![Results Summary](data.png)
-
 ---
 
 ## **MATLAB Version**  
-The script is tested on **MATLAB R2024b**.
+The script is tested on **MATLAB R2024b**.  
+
+---
+
+## **Submission**  
+Ensure that this README and code outputs are included in the final **PDF report** with the filename:  
+```  
+EEE3030_YOURNAME.pdf  
+```
+
+Upload the file to **Canvas** before the deadline.  
+
+---
+
+**End of README**  
+
