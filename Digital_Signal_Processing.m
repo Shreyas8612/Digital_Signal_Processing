@@ -131,7 +131,7 @@ disp(b);
 disp('a (denominator):');
 disp(a);
 
-disp('Manual computation of coefficients:');
+disp('Coefficients from butter() function:');
 disp('b (numerator):');
 disp(b_);
 disp('a (denominator):');
