@@ -1,0 +1,37 @@
+# Ignore backup files and autosave files
+*.asv
+*.autosave
+
+# Ignore temporary MATLAB files
+*.mat~
+*.tmp
+*.bak
+*.log
+
+# Ignore generated or compiled files
+*.mex*      # Compiled MEX files
+*.p         # P-code files (protected code)
+*.slxc      # Simulink cache files
+*.mlappinstall
+
+# Ignore MATLAB Editor swap files
+*.swn
+*.swp
+*.swo
+
+# Ignore test artifacts or output data
+test-results/
+output/
+data/
+*.csv
+
+# Ignore hidden system files
+.DS_Store
+Thumbs.db
+
+# Ignore MATLAB project cache
+*.mlproj
+*.mlapp
+
+# Ignore Git metadata files
+.git/
