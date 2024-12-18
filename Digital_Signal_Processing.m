@@ -73,6 +73,7 @@ hold off;
 % Find the frequency corresponding to the maximum power in the spectrum
 [~, peak_index] = max(pxx); % Index of maximum power
 carrier_frequency = f_ps(peak_index); % Carrier frequency in Hz
+fc = carrier_frequency;
 
 % Print the carrier frequency in kHz
 fprintf('The carrier frequency is %.1f kHz\n', carrier_frequency / 1e3);
