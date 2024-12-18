@@ -74,7 +74,7 @@ This project involves analyzing a sonar signal, designing digital filters, and d
 - **Filter Performance**: Frequency responses are plotted to verify filter performance.  
 - **Computational Savings**: Theoretical and experimental savings are presented for multi-rate filtering.  
 
-![Results Summary](data.png)
+![Results Summary](Data.png)
 
 ---
 
